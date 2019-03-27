@@ -1,0 +1,229 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+  <title>Бриф на продвижение Instagram</title>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/icon">
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="NIKLEX" />
+  <meta name="copyright" content="NIKLEX" />
+   <!-- Open Graph Protocol metadata -->
+  <meta property="og:title" content="Бриф на продвижение Instagram" />
+  <meta property="og:site_name" content="Бриф на продвижение Instagram" />
+  <meta property="og:description" content="" />
+
+<link rel="stylesheet" href="css/portfolio.css"  type="text/css"/>
+<link rel="stylesheet" href="css/brif.css"  type="text/css"/> 
+<link rel="stylesheet" href="css/style.css"  type="text/css"/>
+
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+<script type="text/javascript">
+	$('.checkbox').on('click', function () {
+    var block = $(this).data('block');
+    var id = $(this).attr('id');
+    $('.checkbox').each(function (k, v) {
+        if (v.id != id) {
+            v.checked = false;
+        }
+    });
+    $('.blocks > div').hide();
+    $('.blocks > div').removeClass('show');
+    if ($(this).is(':checked')) {
+        $('.' + block).show();
+        $('.' + block).addClass('show');
+    }
+});
+
+$(document).ready(function() {
+    $('.form-bitrix').submit(function(e) {
+        e.preventDefault();
+        sendForm();
+        return false;
+    });
+});
+
+function sendForm() {
+    console.log(11);
+    $('.text-field-cbx').val($('.text-field-cbx').val() + ': ' + $('.text-field-text').val());
+
+    var data = 'checks=';
+    $('.chceckboxes input:checked').each(function (k, v) {
+        data += v.value + '<br>';
+    });
+    $('.show input:checked').each(function (k, v) {
+        data += v.value + '<br>';
+    });
+
+    data += '&Company=' + $('#companyname').val();
+    data += '&Email=' + $('#email').val();
+    data += '&Comments=' + $('#fancy-textarea').val();
+	/*if($('#typer').val()=="brif")
+	{*/
+		data += '&brif=1';
+		data += '&Comments2=' + $('#fancy-textarea2').val();
+		data += '&Comments3=' + $('#fancy-textarea3').val();
+		data += '&Comments4=' + $('#fancy-textarea4').val();
+		data += '&Comments5=' + $('#fancy-textarea5').val();
+		data += '&Comments6=' + $('#fancy-textarea6').val();
+		data += '&Comments7=' + $('#fancy-textarea7').val();
+	/*}*/
+    data = data.replace(/<br>$/, '');
+    console.log(data);
+    $.ajax({ 
+        url: '/form-brif.php',
+        data: data,
+        type: 'post',
+        success: function (data) {
+            /*if (data) {*/
+                $('.form-bitrix .submit').after('<div class="message1">Cпасибо, мы с вами свяжемся в течении 24 часов)</div>');
+                $('input, textarea').not(':input[type=submit], :input[type=hidden]').val('');
+                $('input:checked').prop('checked', false);
+                setTimeout(function () {
+                    $('.cd-panel-close').click()
+                }, 5000);
+            /*}*/
+        }
+    });
+
+
+    $.ajax({
+        type: "POST",
+        url: "/rest_b24/rest.php",
+        data: data
+    }).done(function() {
+    });
+}
+</script>
+<style type="text/css">
+	#msform input[type="text"] + label {
+		width: 170px;
+	}
+</style>
+
+
+  
+</head>
+<body class="set3d">
+
+	<div class="cd-panel-container">
+		<div class="cd-panel-content">
+			<form id="msform" class="msform form-bitrix" method="post">
+				<div class="mb jc-c">
+					<div class="general-title mb">Бриф на продвижение Instagram</div>
+				</div>
+				<div class="clearfix">
+				  	<div class="wrap-content">
+						<div class="flex-row">
+							<div class="row">
+							  <input type="text" name="companyname" id="companyname" required />
+							  <label for="companyname">Название компании</label>
+							</div>
+					 		<div class="row">
+							  <input type="text" name="username" id="username" required />
+							  <label for="username">Номер телефона</label>
+							</div>
+							
+							<div class="row">
+							  <input type="text" name="email" id="email" required />
+							  <label for="email">Ваш e-mail</label>
+							</div>
+						</div>
+					</div>
+					<div class="flex-col-100">
+						<div class="h3-brif">Цель продвижения:</div>
+						<div class="wrap-content">
+							<div class="h3-brif none-900">Трафик на сайт/продажи/узнаваемость бренда и т.п.</div>
+							<div class="">
+								<div class="row">
+									<textarea name="fancy-textarea" id="fancy-textarea" required /></textarea>
+									<label for="fancy-textarea"><div class="block-900">Трафик на сайт/продажи/узнаваемость бренда и т.п.</div><div class="none-1000">Напишите ответ</div></label>
+								</div>
+						  	</div>
+					   	</div>
+				   	</div>
+				   	<div class="flex-col-100">
+						<div class="h3-brif">Чем вы занимайтесь?</div>
+						<div class="wrap-content">
+							<div class="h3-brif none-900">Опишите продукцию/услуги</div>
+							<div class="">
+								<div class="row">
+									<textarea name="fancy-textarea" id="fancy-textarea2" required /></textarea>
+									<label for="fancy-textarea2"><div class="block-900">Опишите продукцию/услуги</div><div class="none-1000">Напишите ответ</div></label>
+								</div>
+						  	</div>
+					   	</div>
+				   	</div>
+					<div class="flex-column">
+					   	<div class="flex-col-100">
+					   		<div class="h3-brif">Информация для оформления аккаунта</div>
+					   		<div class="wrap-content">
+					   			<div class="h3-brif none-900">ФИО, стаж работы, образование если играет роль, в общем все что будет вписано в шапку аккаунта.</div>
+								<div class="">
+									<div class="row">
+										<textarea name="fancy-textarea" id="fancy-textarea3" required /></textarea>
+										<label for="fancy-textarea3"><div class="block-900">ФИО, стаж работы, образование если играет роль, в общем все что будет вписано в шапку аккаунта.</div><div class="none-1000">Напишите ответ</div></label>
+									</div>
+							  	</div>
+						   	</div>
+						</div>
+						<div class="flex-col-100">
+					   		<div class="wrap-content">
+					   			<div class="h3-brif none-900">ССылки на известных конкурентов</div>
+								<div class="">
+									<div class="row">
+										<textarea name="fancy-textarea" id="fancy-textarea4" required /></textarea>
+										<label for="fancy-textarea4"><div class="block-900">ССылки на известных конкурентов</div><div class="none-1000">Напишите ответ</div></label>
+									</div>
+							  	</div>
+						   	</div>
+						</div>
+						<div class="flex-col-100">
+							<div class="h3-brif">Основные отличия от конкурентов</div>
+					   		<div class="wrap-content">
+					   			<div class="h3-brif none-900">Конкурентные преимущества компании?</div>
+								<div class="">
+									<div class="row">
+										<textarea name="fancy-textarea" id="fancy-textarea5" required /></textarea>
+										<label for="fancy-textarea5"><div class="block-900">Конкурентные преимущества компании</div><div class="none-1000">Напишите ответ</div></label>
+									</div>
+							  	</div>
+						   	</div>
+						</div>
+					</div>
+					<div class="flex-col-100">
+				   		<div class="h3-brif">Информация которая поможет составить контент план, можно добавить ссылки на ресурсы</div>
+				   		<div class="wrap-content">
+				   			<div class="h3-brif none-900">ссылка на доп.ресурсы с материалами (Youtube, vk и т.п.)</div>
+							<div class="">
+								<div class="row">
+									<textarea name="fancy-textarea" id="fancy-textarea6" required /></textarea>
+									<label for="fancy-textarea6"><div class="block-900">ссылка на доп.ресурсы с материалами (Youtube, vk и т.п.)</div><div class="none-1000">Напишите ответ</div></label>
+								</div>
+						  	</div>
+					   	</div>
+					</div>
+					<div class="wrap-content">
+						<div class="h3-brif none-900">Примерный возраст вашего аккаунта</div>
+						<div class="">
+							<div class="row">
+								<textarea name="fancy-textarea" id="fancy-textarea7" required /></textarea>
+								<label for="fancy-textarea7"><div class="block-900">Примерный возраст вашего аккаунта</div><div class="none-1000">Напишите ответ</div></label>
+							</div>
+					  	</div>
+				   	</div>
+
+				</div>
+
+			 <input type="submit" class="submit clearfix effect2" id="send" value="Отправить бриф" >
+			</form>
+		</div> <!-- cd-panel-content -->
+	</div> <!-- cd-panel-container -->
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+.message1 {
+	text-align: center;
+    padding: 24px;
+    font-size: 27px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background: rgba(2,136,209,1);
+    z-index: 1;
+}
+
+#msform {
+	max-width: 1200px;
+	width: 100% !important;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+	-ms-align-items: center;
+}
+
+.brif-logo img{
+	width: 80%;
+}
+
+.wrap-content {
+    border-top: 1px solid #fff !important;
+}
+
+.chceckboxes {
+    margin: 0 !important;
+}
+
+#msform input[type="text"] + label, #msform input[type="password"] + label, #msform textarea + label {
+    font-size: 22px !important;
+}
+
+#msform textarea {
+    font-size: 18px !important;
+}
+
+.general-title {
+	color: #fff;
+    font-size: 50px;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 50px;
+    font-family: 'BebasNeueRegular';
+    line-height: 1.2;
+}
+
+.flex-row {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+
+.flex-col .row {
+	width: 30%;
+}
+
+.flex-col-100 {
+	width: 100%;
+}
+
+.flex-row .row {
+	width: 30%;
+}
+
+.a50-row {
+	width: 50%;
+}
+
+.flex-row .row-45 {
+	width: 45%;
+}
+
+.flex-col-30 {
+	width: 32%;
+}
+
+.flex-col-100 .row {
+	width: 100%;
+}
+
+.flex-col-30 .row {
+	width: 100%;
+}
+
+.mb {
+	margin-bottom: 20px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+
+.jc-c {
+	justify-content: center;
+}
+
+.h3-brif {
+	margin-bottom: 20px;
+	font-size: 20px;
+	line-height: 1;
+}
+
+.mb input[type='radio'] + label:hover:after, .mb input[type='radio']:checked + label:after {
+    top: 2px;
+}
+
+input.effect2 {
+	margin: 0 !important;
+	padding: 10px 40px !important;
+}
+
+.none-900 {
+	display: none;
+}
+.block-900 {
+	display: block;
+}
+
+.none-1000 {
+	display: none;
+}
+
+
+@media only screen and (max-width: 1300px) {
+	.width100 {
+		width: 100% !important;
+	}
+	.flex-dir-col {
+		flex-direction: column!important;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.mb {
+		flex-direction: column-reverse !important;
+	}
+	.flex-row {
+		flex-direction: column !important;
+	}
+	.flex-row .row {
+		width: 100%;
+	}
+	.brif-logo img{
+		width: 50%;
+	}
+	.brif-logo {
+		text-align: center;
+	}
+	.none-900 {
+		display: block;
+	}
+	.block-900 {
+		display: none;
+	}
+	.none-1000 {
+		display: block;
+	}
+}
+
+@media only screen and (max-width: 840px) {
+	input[type='radio'] + label:before, input[type='radio'] + label:after, input[type='checkbox'] + label:before, input[type='checkbox'] + label:after {
+		top: -3px;
+	}
+	input[type='radio'] + label, input[type='checkbox'] + label {
+		line-height: 1;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.brif-logo img{
+		width: 80%;
+	}
+	.general-title {
+		font-size: 40px;
+	}
+}
+
+
+
